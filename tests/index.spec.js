@@ -5,6 +5,6 @@ test('pick up process.env.VAR', () => {
 	process.env.ENV_VAR_FOO = 'foo';
 	const srcResult = src();
 	const distResult = dist();
-	expect(srcResult).toBe('foo');
-	expect(distResult).toBe('foo');
+	expect(srcResult).toEqual(['foo', undefined]);
+	expect(distResult).toEqual(['foo', 'bar']);
 });
